@@ -12,7 +12,7 @@ class TimeSpan:
         return self._start
 
     @start.setter
-    def start(self, value:datetime):
+    def start(self, value):
         self._start = value or datetime.min
 
     @property
