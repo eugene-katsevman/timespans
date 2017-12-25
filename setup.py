@@ -7,7 +7,7 @@ def read(fname):
 
 setup(
     name = "timespans",
-    version = "0.0.1",
+    version = "0.0.2",
     author = "Eugene Katsevman",
     author_email = "eugene.katsevman@gmail.com",
     description = ("A library for adding and subtracting datetime spans"),
@@ -17,8 +17,14 @@ setup(
     py_modules=['timespans'],
     long_description=read('README'),
     classifiers=[
-        "Development Status :: 3 - Alpha",
-        "Topic :: Utilities",
-        "License :: OSI Approved :: MIT License",
+        'Development Status :: 3 - Alpha',
+        'Topic :: Utilities',
+        'License :: OSI Approved :: MIT License',
+        
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.2',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',        
     ],
 )
