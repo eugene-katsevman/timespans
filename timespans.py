@@ -41,21 +41,22 @@ class TimeSpan:
         return self.__repr__()
 
     def __repr__(self):
-        return "("+str(self.start)+", "+str(self.start)+")"
+        return "(%s, %s)" % (self.start, self.end)
 
     def __sub__(self, other):
         if other.start <= other.end <= self.start:
             return [self]
         elif self.end <= other.start <= other.end:
             return [self]
-        elif other.start<= self.start <= other.end <= self.end:
+        elif other.start <= self.start <= other.end <= self.end:
             return [TimeSpan(other.end, self.end)]
         elif self.start <= other.start <= self.end <= other.end:
             return [TimeSpan(self.start, other.start)]
         elif other.start <= self.start <= self.end <= other.end:
             return []
-        elif self.start <= other.start <= other.end <= self.end:            
-            return [TimeSpan(self.start, other.start), TimeSpan(other.end, self.end)]
+        elif self.start <= other.start <= other.end <= self.end:
+            return [TimeSpan(self.start, other.start),
+                    TimeSpan(other.end, self.end)]
         else:
             raise Exception("Strange TimeSpan")
 
@@ -108,9 +109,9 @@ class TimeSpanSet:
     def __eq__(self, other):
         assert isinstance(other, TimeSpanSet)
 
-        return len(self.spans) == len(other.spans) and all([x == y for x, y in zip(self.spans, other.spans)])
-
+        return len(self.spans) == len(other.spans) and all(
+            [x == y for x, y in zip(self.spans, other.spans)]
+        )
 
     def __str__(self):
         return "["+", ".join([str(s) for s in self.spans])+"]"
-
