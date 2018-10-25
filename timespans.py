@@ -114,4 +114,4 @@ class TimeSpanSet:
         )
 
     def __str__(self):
-        return "["+", ".join([str(s) for s in self.spans])+"]"
+        return str(self.spans)
